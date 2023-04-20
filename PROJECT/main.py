@@ -19,16 +19,6 @@ app.secret_key='hmsprojects'
 login_manager=LoginManager(app)
 login_manager.login_view='login'
 
-# SMTP MAIL SERVER SETTINGS
-
-# app.config.update(
-#     MAIL_SERVER='smtp.gmail.com',
-#     MAIL_PORT='465',
-#     MAIL_USE_SSL=True,
-#     MAIL_USERNAME="add your gmail-id",
-#     MAIL_PASSWORD="add your gmail-password"
-# )
-# mail = Mail(app)
 
 
 @login_manager.user_loader
@@ -283,7 +273,6 @@ def test():
 @login_required
 def details():
     posts=Trigr.query.all()
-    # posts=db.engine.execute("SELECT * FROM `trigr`")
     return render_template('trigers.html',posts=posts)
 
 
@@ -301,8 +290,6 @@ def search():
 
             flash("Doctor is Not Available","danger")
     return render_template('index.html')
-
-
 
 
 
